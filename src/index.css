@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-sidebar: #f0f0f0;
+  /* Light grey/beige from image */
+  --bg-main: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --accent-color: #000000;
+  --font-main: 'Inter', sans-serif;
+  /* Using a clean sans-serif */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  background-color: #e5e5e5;
+  /* Background for the app UI */
+  color: var(--text-primary);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* App Layout */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.editor-panel {
+  width: 40%;
+  padding: 20px;
+  background: #fff;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+}
+
+.preview-panel {
+  flex: 1;
+  padding: 40px;
+  background: #555;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Resume Page - A4 */
+.resume-page {
+  width: 210mm;
+  height: 297mm;
+  /* Fixed height for A4 */
+  background: white;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  /* Enforce single page */
+}
+
+.resume-scale-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transform-origin: top center;
+}
+
+/* Sidebar (Resume) */
+.resume-sidebar {
+  width: 32%;
+  background-color: var(--bg-sidebar);
+  padding: 200px 25px 40px 25px;
+  /* Increased top padding to avoid header overlap */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Main Content (Resume) */
+.resume-main {
+  flex: 1;
+  padding: 200px 35px 40px 35px;
+  /* Increased top padding to avoid header overlap */
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Typography & Elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-size: 14px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.item-subtitle {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-small {
+  font-size: 11px;
+  line-height: 1.5;
+  color: #444;
+}
+
+p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+ul {
+  margin: 5px 0;
+  padding-left: 15px;
+}
+
+li {
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.profile-section p,
+.history-section li,
+.education-section li {
+  text-align: justify;
+}
+
+/* Header Box */
+.header-box {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  /* Reduced width */
+  background: #fff;
+  border: 2px solid #000;
+  padding: 30px 20px;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-name {
+  font-size: 32px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.header-title {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: #555;
+}
+
+/* Sidebar specific */
+.details-section h4 {
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+
+.details-item {
+  margin-bottom: 12px;
+}
+
+.link-item {
+  display: block;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-item {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: none;
+  }
+
+  .app-container {
+    display: block;
+    height: auto;
+    overflow: visible;
+  }
+
+  .editor-panel {
+    display: none;
+  }
+
+  .preview-panel {
+    padding: 0;
+    background: white;
+    display: block;
+    overflow: visible;
+  }
+
+  .resume-page {
+    width: 100%;
+    min-height: 100vh;
+    box-shadow: none;
+  }
+
+  .print-btn {
+    display: none !important;
+  }
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button.add-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button.remove-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  font-size: 10px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.print-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 30px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+}
